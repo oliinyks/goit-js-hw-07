@@ -28,10 +28,7 @@ galleryEl.addEventListener('click', selectImg)
 function selectImg(event) {
 	event.preventDefault()	
 
-	if (
-        !event.target.classList.contains('gallery__link') &&
-        !event.target.classList.contains('gallery__image')
-    ) {
+	if ( !event.target.classList.contains('gallery__image')) {
         return
     }
 
