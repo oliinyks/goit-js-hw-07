@@ -26,18 +26,22 @@ galleryEl.insertAdjacentHTML('afterbegin', markup)
 galleryEl.addEventListener('click', selectImg)
 
 function selectImg(event) {
-	event.preventDefault()	
+    event.preventDefault()
 
-	if ( !event.target.classList.contains('gallery__image')) {
+    if (!event.target.classList.contains('gallery__image')) {
         return
     }
 
-	createBigImg(event.target.dataset.source)
-};
+    const instance = basicLightbox.create(`
+		  <img src="${event.target.dataset.source}">
+	`)
+    instance.show()
 
+    galleryEl.addEventListener('keydown', hideBigImg)
 
-function createBigImg(element) {
-	basicLightbox.create(`
-		  <img src="${element}">
-	`).show()
+    function hideBigImg(event) {
+        if (event.code === 'Escape') {
+            instance.close()
+        }
+    }
 }
