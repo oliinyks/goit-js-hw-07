@@ -37,11 +37,11 @@ function selectImg(event) {
 	`)
     instance.show()
 
-    galleryEl.addEventListener('keydown', hideBigImg)
+   //  galleryEl.addEventListener('keydown', hideBigImg)
 
-    function hideBigImg(event) {
-        if (event.code === 'Escape') {
-            instance.close()
-        }
-    }
+   //  function hideBigImg(event) {
+   //      if (event.code === 'Escape') {
+   //          instance.close()
+   //      }
+   //  }
 }
